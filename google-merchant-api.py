@@ -65,11 +65,10 @@ class GMerch():
 			url = "https://content.googleapis.com/content/v1/"+str(self.uid)+"/items/products/schema/"+channel+":"+langauge+":"+country+":"+uid
 		else:
 			url = "https://content.googleapis.com/content/v1/"+str(self.uid)+"/items/products/generic"
-
 			
 		#Google has a 250 limit
 		if limit > 250:
-			limit = 250
+			limit = 250 
 
 		if limit:
 			params = {"max-results":str(limit),}
