@@ -5,7 +5,7 @@ from datetime import datetime,timedelta
 
 
 
-class GMerch_item():
+class item():
 	def __init__(self,**kwargs):
 		#Required to send
 		self.title = kwargs.get("title",None)
@@ -148,9 +148,9 @@ class GMerch_item():
 		add_subelement(entry,"scp", "size",self.size)
 		add_subelement(entry,"scp", "year",self.year)		
 
-		print etree.tostring(entry, pretty_print=True, xml_declaration=True)
+		return etree.tostring(entry, pretty_print=True, xml_declaration=True)
 		
 
-hello = GMerch_item()
+hello = item()
 print hello.expiration_date
 hello.create()
