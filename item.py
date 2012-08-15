@@ -52,6 +52,7 @@ class item():
 		self.size =  kwargs.get("size",None)
 		self.year =  kwargs.get("year",None)
 
+		self.shipping = []
 		'''
 		TODO: SHIPPING/TAX
 		'''
@@ -89,6 +90,10 @@ class item():
 	        self._adult = False
 	    return locals()
 	adult = property(**adult())
+
+	def add_shipping(self,country,service,price):
+		self.shipping.append({"country":country,"service":service,"price":price})
+
 
 	def create(self):
 
@@ -146,11 +151,15 @@ class item():
 		add_subelement(entry,"scp", "quantity",self.quantity)
 		add_subelement(entry,"scp", "shipping_weight ",self.shipping_weight )
 		add_subelement(entry,"scp", "size",self.size)
-		add_subelement(entry,"scp", "year",self.year)		
+		add_subelement(entry,"scp", "year",self.year)
+
+		if self.shipping:
+			etree.SubElement(entry,nsmap("scp") +shipping)
+			for s in shipping:
+				etree.SubElement(shipping,nsmp("scp") + "shipping_price",unit=str(self.price_unit)).text = str(s["price"])
+				add_subelement(shipping,"scp", "scp:shipping_service",self.s["service"])
+				add_subelement(shipping,"scp", "scp:shipping_country",self.s["country"])
 
 		return etree.tostring(entry, pretty_print=True, xml_declaration=True)
-		
 
-hello = item()
-print hello.expiration_date
-hello.create()
+
