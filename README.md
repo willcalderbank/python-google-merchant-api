@@ -22,6 +22,11 @@ This is used to generate the xml for each product, again this follows the google
 item() to build out this xml, each item can be added see the google merchant api docs for each item. .create() is then used to create the xml.
 
 
+Dependencies
+-------
+- LXML
+- requests
+
 Warning!!!!
 ----
 Although this is currently in use and works fine, use at your own risk.
