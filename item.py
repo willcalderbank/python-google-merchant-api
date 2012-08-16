@@ -5,7 +5,7 @@ from datetime import datetime,timedelta
 
 
 
-class item():
+class Item():
 	def __init__(self,**kwargs):
 		#Required to send
 		self.title = kwargs.get("title",None)
@@ -161,5 +161,3 @@ class item():
 				add_subelement(shipping,"scp", "scp:shipping_country",self.s["country"])
 
 		return etree.tostring(entry, pretty_print=True, xml_declaration=True)
-
-

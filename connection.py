@@ -7,8 +7,9 @@ A quick easy python liberary for google merchant, use at your own risk.
 Author: Will Calderbank
 '''
 import urllib,urllib2,requests
+import threading
 
-class connection():
+class Connection():
 	import urllib,urllib2
 	def __init__(self,email, password, source, uid):
 		##URL and headers for the auth
